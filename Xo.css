@@ -1,0 +1,41 @@
+body {
+    background-color: blanchedalmond;
+}
+
+.cell-x-o {
+    background-color: white;
+    border: solid black 2px;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    grid-gap: 2px;
+}
+
+.cell-x{
+    background-image: url(/XOgame/images/icons/Untitled.png);
+    background-color: white;
+    border: solid black 2px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.cell-o{
+    background-image: url(/XOgame/images/icons/Untitled2.png);
+    background-color: white;
+    border: solid black 2px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.score-p{
+    margin: auto;
+    text-align: center;
+    font-size: larger;
+    color: darkred;
+    margin-top: 20px;
+}
