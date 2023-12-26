@@ -5,6 +5,7 @@ body {
 .cell-x-o {
     background-color: white;
     border: solid black 2px;
+    cursor: pointer;
 }
 
 .game-board {
@@ -18,14 +19,14 @@ body {
 }
 
 .cell-x{
-    background-image: url(/XOgame/images/icons/Untitled.png);
+    background-image: url(/images/icons/Untitled.png);
     background-color: white;
     border: solid black 2px;
     background-size: cover;
     background-repeat: no-repeat;
 }
 .cell-o{
-    background-image: url(/XOgame/images/icons/Untitled2.png);
+    background-image: url(/images/icons/Untitled2.png);
     background-color: white;
     border: solid black 2px;
     background-size: cover;
