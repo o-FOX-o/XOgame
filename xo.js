@@ -90,15 +90,16 @@ function checkWinner(array,cell) {
         }
     }
    
-
     //Recogniting player 
+
     let player = '';
     if(array === playerOneCells){
         player = 'Player one';
     }else if(array === playerTwoCells){
         player = 'Player two';
     } 
-    //Checking
+    //Checking cross lines
+    
     const otherscrore = {positive: 0, negative: 0};
     array.forEach( (cell) => {
         if (cell.row == 1&& cell.column == 1|| cell.row == 2&& cell.column == 2|| cell.row == 3&&cell.column == 3) {
@@ -109,7 +110,8 @@ function checkWinner(array,cell) {
         }
     })
 
-    //Checking
+    //Checking striaght lines
+
     checkLines(rowLine.lineOne,player,cell);
     checkLines(rowLine.lineTwo,player,cell);
     checkLines(rowLine.lineThree,player,cell);
