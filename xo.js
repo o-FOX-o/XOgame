@@ -13,13 +13,11 @@ let tie = 0;
 function Playgame(x,y,cell) {
     if (playerTurn === 'playerOne') {
         playerTurn = 'playerTwo';
-        if (broardCells.length === 0){
-            addCellPlayerOne(x,y,cell);
-        }else{
+    
             let exist = false;
             for (let i = 0; i < broardCells.length; i++) {
-                let cell = broardCells[i];
-                if (cell.row === y && cell.column === x) {
+                let broardCell = broardCells[i];
+                if (broardCell.row === y && broardCell.column === x) {
                  exist = true;
                  console.log('Exist');
             }}
@@ -28,16 +26,12 @@ function Playgame(x,y,cell) {
             }else{
                 playerTurn = 'playerOne';
             }
-        }
     }else if (playerTurn === 'playerTwo') {
         playerTurn = 'playerOne';
-        if (broardCells.length === 0){
-            addCellPlayerTwo(x,y,cell);
-        }else{
             let exist = false;
             for (let i = 0; i < broardCells.length; i++) {
-                let cell = broardCells[i];
-            if (cell.row === y && cell.column === x) {
+                let broardCell = broardCells[i];
+            if (broardCell.row === y && broardCell.column === x) {
                  exist = true;
                  console.log('Exist');
             }}
@@ -46,7 +40,6 @@ function Playgame(x,y,cell) {
             }else{
                 playerTurn = 'playerTwo';
             }
-        }
     }
     console.log(playerOneCells);
     console.log(playerTwoCells);
@@ -100,13 +93,13 @@ function checkWinner(array,cell) {
     } 
     //Checking cross lines
     
-    const otherscrore = {positive: 0, negative: 0};
+    const otherscore = {positive: 0, negative: 0};
     array.forEach( (cell) => {
         if (cell.row == 1&& cell.column == 1|| cell.row == 2&& cell.column == 2|| cell.row == 3&&cell.column == 3) {
-            otherscrore.positive++;
+            otherscore.positive++;
         }
         if (cell.row == 1&& cell.column == 3|| cell.row == 2&& cell.column == 2|| cell.row == 3&&cell.column == 1) {
-            otherscrore.negative++;
+            otherscore.negative++;
         }
     })
 
@@ -118,21 +111,21 @@ function checkWinner(array,cell) {
     checkLines(columnLine.lineOne,player,cell);
     checkLines(columnLine.lineTwo,player,cell);
     checkLines(columnLine.lineThree,player,cell);
-    checkLines(otherscrore.positive,player,cell);
-    checkLines(otherscrore.negative,player,cell);
+    checkLines(otherscore.positive,player,cell);
+    checkLines(otherscore.negative,player,cell);
+    if(broardCells.length == 9){
+        TieFunction();
+        restGame(cell);
+    }
     console.log(rowLine);
     console.log(columnLine);
-    console.log(otherscrore);
+    console.log(otherscore);
 }
 
 //Checking function
 function checkLines(line,player,cell){
-    if(line === 3){
+    if(line == 3){
         winfunction(player);
-        restGame(cell);
-    }
-    if(broardCells.length == 9){
-        TieFunction();
         restGame(cell);
     }
 }
@@ -167,9 +160,9 @@ function winfunction(player){
 }
 
 function displayScore(){
-    document.querySelector('.player-one-score').innerHTML = playerOneScore;
-    document.querySelector('.player-two-score').innerHTML = playerTwoScore;
-    document.querySelector('.tie-score').innerHTML = tie;
+    document.querySelector('.player-one-score').innerText = playerOneScore;
+    document.querySelector('.player-two-score').innerText = playerTwoScore;
+    document.querySelector('.tie-score').innerText = tie;
 }
 
 document.querySelectorAll('.cell-x-o').forEach( (cell) => {
