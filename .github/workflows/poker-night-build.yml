@@ -41,3 +41,5 @@ B64
           name: PokerNight-APK
           path: poker_android/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
+
+# trigger build
